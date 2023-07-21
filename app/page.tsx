@@ -1,3 +1,4 @@
+import Button from "@/src/components/Button";
 import { PrismaClient } from "@prisma/client";
 
 async function Home() {
@@ -13,6 +14,7 @@ async function Home() {
           </li>
         ))}
       </ul>
+      <Button />
     </>
   );
 }
