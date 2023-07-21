@@ -1,5 +1,20 @@
-import Image from "next/image";
+import { PrismaClient } from "@prisma/client";
 
-export default function Home() {
-  return <h1>hi</h1>;
+async function Home() {
+  const prisma = new PrismaClient();
+  const users = await prisma.user.findMany();
+
+  return (
+    <>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            {user.name} {user.email}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 }
+
+export default Home;
